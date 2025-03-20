@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Task Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="theme-toggle">
+        <button class="theme-btn" onclick="toggleTheme()">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <h1 class="app-title">🚀 TaskMaster Pro</h1>
+            <div class="progress-circle">
+                <div class="circle">
+                    <span class="progress-value">0%</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="controls">
+            <div class="search-filter">
+                <input type="text" id="searchInput" placeholder="Search tasks...">
+                <select id="filterSelect">
+                    <option value="all">All Tasks</option>
+                    <option value="today">Due Today</option>
+                    <option value="high">High Priority</option>
+                </select>
+            </div>
+
+            <div class="task-creator">
+                <div class="input-group">
+                    <input type="text" id="taskInput" placeholder="Enter new task...">
+                    <input type="date" id="dueDate">
+                    <div class="category-wrapper">
+                        <select id="categorySelect">
+                            <option value="">Category</option>
+                        </select>
+                        <button class="icon-btn" onclick="openCategoryModal()">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                <button class="primary-btn" onclick="addTask()">
+                    <i class="fas fa-plus"></i> Add Task
+                </button>
+            </div>
+        </div>
+
+        <main class="task-board">
+            <div class="task-column">
+                <h2 class="column-title"><i class="fas fa-tasks"></i> Active Tasks</h2>
+                <ul id="taskList" class="task-list"></ul>
+            </div>
+        </main>
+
+        <!-- Category Modal -->
+        <div id="categoryModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeCategoryModal()">&times;</span>
+                <h3>Manage Categories</h3>
+                <div class="category-input">
+                    <input type="text" id="newCategory" placeholder="New category name">
+                    <button class="primary-btn" onclick="addNewCategory()">
+                        <i class="fas fa-plus"></i> Add Category
+                    </button>
+                </div>
+                <div id="categoryList" class="category-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
